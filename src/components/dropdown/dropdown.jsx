@@ -11,9 +11,11 @@ export const Dropdown = () => {
                 {
                     showDatePicker ?
                         (
-                            <div className='flex flex-col items-center'>
+                            <div className='flex flex-col py-1 items-center'>
+                                <div>
                                     <span>Close</span>
-                                <div className='mt-4'>
+                                </div>
+                                <div className='mt-3'>
                                     <Calendar/>
                                 </div>
                             </div>
