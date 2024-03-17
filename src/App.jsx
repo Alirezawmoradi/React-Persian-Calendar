@@ -1,7 +1,9 @@
+import {DatePicker} from "./feature/date-picker/date-picker.jsx";
+
 function App() {
 
     return (
-        <div className='flex justify-center'> Custom Date Picker</div>
+        <DatePicker/>
     )
 }
 
