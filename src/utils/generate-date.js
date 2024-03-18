@@ -11,20 +11,20 @@ export const GenerateDate = (date) => {
     let month = newDate.jMonth();
     let day = newDate.jDate();
 
-    let firstDateOfMonth = moment(`${year}-${month + 1}-01`, 'jYYYY-jMM-jDD');
-    let lastDateOfMonth = moment(`${year}-${month + 1}-${newDate.jDaysInMonth()}`, 'jYYYY-jMM-jDD');
+    let firstDateOfMonth = moment(`${year}-${month + 1}-01`, 'jYYYY-jMM-jDD').startOf('jMonth');
+    let lastDateOfMonth = moment(`${year}-${month + 1}-${newDate.jDaysInMonth()}`, 'jYYYY-jMM-jDD').endOf('jMonth');
 
     const arrayOfDate = [];
 
     function convertToJalali(date) {
-        return moment(date, 'YYYY-MM-DD').format('jYYYY-jM-jD');
+        return moment(date, 'YYYY-MM-DD').format('jYYYY-jMM-jDD');
     }
 
-    for (let i = firstDateOfMonth.jDate(); i <= lastDateOfMonth.jDate(); i++) {
-        const currentDate = moment(firstDateOfMonth).date(i);
-        arrayOfDate.push(convertToJalali(currentDate))
+    let currentDate = moment(firstDateOfMonth);
+    while (currentDate.isSameOrBefore(lastDateOfMonth)) {
+        arrayOfDate.push(convertToJalali(currentDate));
+        currentDate.add(1, 'day');
     }
-
 
     return arrayOfDate;
 }
