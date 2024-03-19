@@ -33,5 +33,14 @@ export const GenerateDate = (date) => {
         currentDate.add(1, 'day');
     }
 
+    const remaining = 42 - arrayOfDate.length;
+
+    for (let i = 1; i <= remaining; i++) {
+        arrayOfDate.push({
+            currentMonth: false,
+            date: lastDateOfMonth.add(1, 'day').format('jYYYY-jMM-jDD')
+        });
+    }
+
     return arrayOfDate;
 };
