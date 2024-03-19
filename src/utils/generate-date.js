@@ -16,15 +16,34 @@ export const GenerateDate = (date) => {
 
     const arrayOfDate = [];
 
-    function convertToJalali(date) {
-        return moment(date, 'YYYY-MM-DD').format('jYYYY-jMM-jDD');
-    }
+    for (let i = 0; i < firstDateOfMonth.jDay(); i++) {
+        const date = firstDateOfMonth.jDay(i);
 
+        arrayOfDate.push({
+            currentMonth: false,
+            date,
+        });
+    }
     let currentDate = moment(firstDateOfMonth);
     while (currentDate.isSameOrBefore(lastDateOfMonth)) {
-        arrayOfDate.push(convertToJalali(currentDate));
+        arrayOfDate.push({
+            currentMonth: true,
+            date: currentDate.format('jYYYY-jMM-jDD')
+        });
         currentDate.add(1, 'day');
     }
 
+    const remaining = 42 - arrayOfDate.length;
+
+    for (
+        let i = lastDateOfMonth.jDay() + 1;
+        i <= lastDateOfMonth.jDay() + remaining;
+        i++
+    ) {
+        arrayOfDate.push({
+            currentMonth: false,
+            date: lastDateOfMonth.jDay(i),
+        });
+    }
     return arrayOfDate;
-}
+};
