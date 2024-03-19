@@ -12,3 +12,4 @@ export const PersianMonths = [
     "بهمن",
     "اسفند",
 ];
+export const PersianDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج']
