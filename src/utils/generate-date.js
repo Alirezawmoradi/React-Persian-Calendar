@@ -22,7 +22,8 @@ export const GenerateDate = (date) => {
     while (currentDate.isSameOrBefore(lastDateOfMonth)) {
         arrayOfDate.push({
             currentMonth: true,
-            date: currentDate.format('jYYYY-jMM-jDD')
+            date: currentDate.format('jYYYY-jMM-jDD'),
+            today: currentDate.format('jYYYY/jMM/jDD') === moment().format('jYYYY/jMM/jDD')
         });
         currentDate.add(1, 'day');
     }
