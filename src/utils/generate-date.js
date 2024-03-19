@@ -1,6 +1,6 @@
 import moment from "jalali-moment";
 
-export const GenerateDate = (date) => {
+export const generateDate = (date) => {
     let newDate = moment(date);
     let year = newDate.jYear();
     let month = newDate.jMonth();
