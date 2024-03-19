@@ -16,12 +16,12 @@ export const GenerateDate = (date) => {
 
     const arrayOfDate = [];
 
-    for (let i = 0; i < firstDateOfMonth.jDay(); i++) {
-        const date = firstDateOfMonth.jDay(i);
+    let lastDateOfPreviousMonth = moment(firstDateOfMonth).subtract(1, 'day');
 
-        arrayOfDate.push({
+    for (let i = lastDateOfPreviousMonth.jDay(); i > 0; i--) {
+        arrayOfDate.unshift({
             currentMonth: false,
-            date,
+            date: lastDateOfPreviousMonth.subtract(i, 'day').format('jYYYY-jMM-jDD')
         });
     }
     let currentDate = moment(firstDateOfMonth);
@@ -33,17 +33,5 @@ export const GenerateDate = (date) => {
         currentDate.add(1, 'day');
     }
 
-    const remaining = 42 - arrayOfDate.length;
-
-    for (
-        let i = lastDateOfMonth.jDay() + 1;
-        i <= lastDateOfMonth.jDay() + remaining;
-        i++
-    ) {
-        arrayOfDate.push({
-            currentMonth: false,
-            date: lastDateOfMonth.jDay(i),
-        });
-    }
     return arrayOfDate;
 };
