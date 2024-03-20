@@ -1,16 +1,29 @@
 import {generateDate} from "../../utils/generate-date.js";
 import moment from "jalali-moment";
-import {PersianDays} from "../../utils/date.js";
+import {PersianDays, PersianMonths} from "../../utils/date.js";
 import {useState} from "react";
+import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 
 export const Calendar = () => {
-    const currentDate = moment().format('jYYYY/jM/jD');
+    const currentDate = moment();
     const [today, setToday] = useState(currentDate);
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
-                <div>
-                    <h1>{today}</h1>
+                <div className='flex flex-row-reverse justify-between'>
+                    <h1 className='font-semibold'>{PersianMonths[today.jMonth()]},{today.jYear()}</h1>
+                    <div className='flex items-center gap-5'>
+                        <GrFormPrevious className='w-5 h-5 cursor-pointer'
+                                        onClick={() => {
+                                            setToday(moment(today).jMonth(today.jMonth() - 1))
+                                        }}/>
+                        <h1 className='cursor-pointer'>Today</h1>
+                        <GrFormNext className='w-5 h-5 cursor-pointer'
+                                    onClick={()=>{
+                                        setToday(moment(today).jMonth(today.jMonth() + 1))
+                                    }}
+                        />
+                    </div>
                 </div>
                 <div className='grid grid-cols-7 w-full text-gray-500'>
                     {
