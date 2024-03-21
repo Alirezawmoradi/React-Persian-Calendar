@@ -44,7 +44,10 @@ export const Calendar = () => {
                                                                                                                     }, index) => {
                             return (
                                 <div className='h-14 border grid place-content-center' key={index}>
-                                    <h1 className={`${currentMonth ? '' : 'text-gray-400'} ${today ? 'bg-red-600 text-white' : ''} ${moment(selectedDate).format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD') ? "bg-black text-white" : ""} h-10 w-10 grid place-content-center rounded-full hover:bg-black hover:text-white transition-all duration-300 cursor-pointer`}
+                                    <h1 className={`${currentMonth ? '' : 'text-gray-400'} 
+                                    ${today ? 'bg-red-600 text-white' : ''} 
+                                    ${moment(selectedDate).format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD') ? "bg-black text-white" : ""} 
+                                    h-10 w-10 grid place-content-center rounded-full hover:bg-black hover:text-white transition-all duration-300 cursor-pointer`}
                                         onClick={() => setSelectedDate(moment(date, 'jYYYY-jM-jD'))}
                                     >
                                         {moment(date, 'jYYYY-jM-jD').format('jD')}
