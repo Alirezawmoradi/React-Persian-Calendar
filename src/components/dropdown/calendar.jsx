@@ -8,7 +8,6 @@ export const Calendar = () => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
     const [selectedDate, setSelectedDate] = useState(currentDate);
-    console.log(generateDate())
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>

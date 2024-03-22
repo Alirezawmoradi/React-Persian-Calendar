@@ -12,9 +12,9 @@ export const generateDate = (date) => {
     const arrayOfDate = [];
 
     let lastDayOfPreviousMonth = moment(firstDateOfMonth).subtract(1, 'day');
-// Number of days to fill from previous month
+
+    // Number of days to fill from previous month
     let daysToFill = (lastDayOfPreviousMonth.jDay() + 1) % 7;
-    console.log(daysToFill)
 
     for (let i = 0; i < daysToFill; i++) {
         arrayOfDate.unshift({
