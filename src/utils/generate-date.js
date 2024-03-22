@@ -8,14 +8,18 @@ export const generateDate = (date) => {
     let firstDateOfMonth = moment(`${year}-${month + 1}-01`, 'jYYYY-jMM-jDD').startOf('jMonth');
     let lastDateOfMonth = moment(`${year}-${month + 1}-${newDate.jDaysInMonth()}`, 'jYYYY-jMM-jDD').endOf('jMonth');
 
+
     const arrayOfDate = [];
 
-    let lastDateOfPreviousMonth = moment(firstDateOfMonth).subtract(1, 'day');
+    let lastDayOfPreviousMonth = moment(firstDateOfMonth).subtract(0, 'day');
+    // Number of days to fill from previous month
+    let daysToFill = lastDayOfPreviousMonth.jDay();
+    console.log(daysToFill)
 
-    for (let i = lastDateOfPreviousMonth.jDay(); i > 0; i--) {
+    for (let i = 0; i < daysToFill; i++) {
         arrayOfDate.unshift({
             currentMonth: false,
-            date: lastDateOfPreviousMonth.subtract(i, 'day').format('jYYYY-jMM-jDD')
+            date: moment(lastDayOfPreviousMonth).subtract(i, 'day').format('jYYYY-jMM-jDD')
         });
     }
     let currentDate = moment(firstDateOfMonth);
