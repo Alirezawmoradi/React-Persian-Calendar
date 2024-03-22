@@ -8,6 +8,7 @@ export const Calendar = () => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
     const [selectedDate, setSelectedDate] = useState(currentDate);
+    console.log(generateDate())
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
@@ -18,7 +19,7 @@ export const Calendar = () => {
                                         onClick={() => {
                                             setToday(moment(today).jMonth(today.jMonth() - 1))
                                         }}/>
-                        <h1 className='cursor-pointer' onClick={() => setSelectedDate(currentDate)}>Today</h1>
+                        <h1 className='cursor-pointer' onClick={() => setSelectedDate(currentDate)}>امروز</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
                                         setToday(moment(today).jMonth(today.jMonth() + 1))
