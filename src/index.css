@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 700;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebBold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebRegular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 400;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 500;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 800;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebExtraBold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 900;
+    src: url(public/fonts/iranyekan/woff2/IRANYekanWebBlack.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 1000;
+    src: url(public/fonts/iranyekan/woff2/iranyekanwebextrablack.woff2) format("woff2")
+}
+
+@layer base{
+    :root {
+        --bs-font-sans-serif: IranSans;
+        --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bs-gradient: linear-gradient(180deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 100%, 0))
+    }
+    body {
+        font-family: iranyekan, serif;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}
