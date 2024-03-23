@@ -52,8 +52,8 @@ export const Calendar = () => {
                                     <h1 className={`${currentMonth ? '' : 'text-gray-400'} 
                                     ${today ? 'bg-red-600 text-white' : ''} 
                                     ${isSelected && !isDisabled ? "bg-black text-white" : ""} 
-                                    ${isDisabled ? '' : 'hover:bg-black hover:text-white cursor-pointer'}
-                                    h-10 w-10 grid place-content-center rounded-full transition-all duration-300 cursor-pointer`}
+                                    ${!isDisabled ? 'hover:bg-black hover:text-white cursor-pointer' : 'cursor-default'}
+                                    h-10 w-10 grid place-content-center rounded-full transition-all duration-300`}
                                         onClick={isDisabled ? undefined : () => setSelectedDate(moment(date, 'jYYYY-jM-jD'))}
                                     >
                                         {moment(date, 'jYYYY-jM-jD').format('jD')}
