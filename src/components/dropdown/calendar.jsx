@@ -18,7 +18,10 @@ export const Calendar = () => {
                                         onClick={() => {
                                             setToday(moment(today).jMonth(today.jMonth() - 1))
                                         }}/>
-                        <h1 className='cursor-pointer' onClick={() => setSelectedDate(currentDate)}>امروز</h1>
+                        <h1 className='cursor-pointer' onClick={() => {
+                            setSelectedDate(currentDate)
+                            setToday(moment())
+                        }}>امروز</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
                                         setToday(moment(today).jMonth(today.jMonth() + 1))
