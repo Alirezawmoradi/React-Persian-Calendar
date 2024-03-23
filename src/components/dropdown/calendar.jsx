@@ -46,11 +46,12 @@ export const Calendar = () => {
                                                                                                                         today
                                                                                                                     }, index) => {
                             const isDisabled = !currentMonth;
+                            const isSelected = moment(selectedDate).format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                             return (
                                 <div className='h-14 border grid place-content-center' key={index}>
                                     <h1 className={`${currentMonth ? '' : 'text-gray-400'} 
                                     ${today ? 'bg-red-600 text-white' : ''} 
-                                    ${moment(selectedDate).format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD') ? "bg-black text-white" : ""} 
+                                    ${isSelected && !isDisabled ? "bg-black text-white" : ""} 
                                     ${isDisabled ? '' : 'hover:bg-black hover:text-white cursor-pointer'}
                                     h-10 w-10 grid place-content-center rounded-full transition-all duration-300 cursor-pointer`}
                                         onClick={isDisabled ? undefined : () => setSelectedDate(moment(date, 'jYYYY-jM-jD'))}
