@@ -20,7 +20,7 @@ export const Calendar = () => {
                                         }}/>
                         <h1 className='cursor-pointer' onClick={() => {
                             setSelectedDate(currentDate)
-                            setToday(moment())
+                            setToday(currentDate)
                         }}>امروز</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
