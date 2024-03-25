@@ -4,10 +4,16 @@ import {PersianDays, PersianMonths} from "../../utils/date.js";
 import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 
-export const Calendar = () => {
+export const Calendar = ({inputFill}) => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
     const [selectedDate, setSelectedDate] = useState(currentDate);
+    console.log(moment(selectedDate).format('jYYYY/jMM/jDD'))
+    // const handleInputData = (selectedDate) => {
+    //     setSelectedDate(selectedDate)
+    //     inputFill(selectedDate);
+    //     console.log(inputFill)
+    // }
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
@@ -54,7 +60,10 @@ export const Calendar = () => {
                                     ${isSelected && !isDisabled ? "bg-black text-white" : ""} 
                                     ${!isDisabled ? 'hover:bg-black hover:text-white cursor-pointer' : 'cursor-default'}
                                     h-10 w-10 grid place-content-center rounded-full transition-all duration-300`}
-                                        onClick={isDisabled ? undefined : () => setSelectedDate(moment(date, 'jYYYY-jM-jD'))}
+                                        onClick={isDisabled ? undefined : () => {
+                                            setSelectedDate(moment(date, 'jYYYY-jM-jD'))
+                                            inputFill(moment(selectedDate).format('jYYYY/jMM/jDD'));
+                                        }}
                                     >
                                         {moment(date, 'jYYYY-jM-jD').format('jD')}
                                     </h1>
