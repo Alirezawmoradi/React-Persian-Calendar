@@ -7,6 +7,9 @@ export const Dropdown = () => {
     //it should change to input with icon to show calendar
     const [showCalendar, setShowCalendar] = useState(false);
     const [date, setDate] = useState(moment().format('jYYYY/jMM/jDD'));
+    const inputFill = (event) => {
+        console.log(event.target)
+    }
     return (
         <div className='flex flex-col justify-center'>
             <div className='flex justify-center gap-5 mt-20'>
@@ -18,7 +21,7 @@ export const Dropdown = () => {
             {
                 showCalendar &&
                 <div className='mb-5'>
-                    <Calendar/>
+                    <Calendar inputFill={inputFill}/>
                 </div>
             }
         </div>
