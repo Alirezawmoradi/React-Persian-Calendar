@@ -3,17 +3,12 @@ import moment from "jalali-moment";
 import {PersianDays, PersianMonths} from "../../utils/date.js";
 import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
+import {useAppContext} from "../../contexts/app/app-context.jsx";
 
 export const Calendar = ({inputFill}) => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
-    const [selectedDate, setSelectedDate] = useState(currentDate);
-    console.log(moment(selectedDate).format('jYYYY/jMM/jDD'))
-    // const handleInputData = (selectedDate) => {
-    //     setSelectedDate(selectedDate)
-    //     inputFill(selectedDate);
-    //     console.log(inputFill)
-    // }
+    const {selectedDate, changeSelectedDate} = useAppContext();
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
@@ -25,7 +20,7 @@ export const Calendar = ({inputFill}) => {
                                             setToday(moment(today).jMonth(today.jMonth() - 1))
                                         }}/>
                         <h1 className='cursor-pointer' onClick={() => {
-                            setSelectedDate(currentDate)
+                            changeSelectedDate(currentDate)
                             setToday(currentDate)
                         }}>امروز</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
@@ -61,7 +56,7 @@ export const Calendar = ({inputFill}) => {
                                     ${!isDisabled ? 'hover:bg-black hover:text-white cursor-pointer' : 'cursor-default'}
                                     h-10 w-10 grid place-content-center rounded-full transition-all duration-300`}
                                         onClick={isDisabled ? undefined : () => {
-                                            setSelectedDate(moment(date, 'jYYYY-jM-jD'))
+                                            changeSelectedDate(moment(date, 'jYYYY-jM-jD'))
                                             inputFill(moment(selectedDate).format('jYYYY/jMM/jDD'));
                                         }}
                                     >
