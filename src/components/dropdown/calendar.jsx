@@ -55,10 +55,7 @@ export const Calendar = ({inputFill}) => {
                                     ${isSelected && !isDisabled ? "bg-black text-white" : ""} 
                                     ${!isDisabled ? 'hover:bg-black hover:text-white cursor-pointer' : 'cursor-default'}
                                     h-10 w-10 grid place-content-center rounded-full transition-all duration-300`}
-                                        onClick={isDisabled ? undefined : () => {
-                                            changeSelectedDate(moment(date, 'jYYYY-jM-jD'))
-                                            inputFill(moment(selectedDate).format('jYYYY/jMM/jDD'));
-                                        }}
+                                        onClick={isDisabled ? undefined : () => changeSelectedDate(moment(date, 'jYYYY-jM-jD'))}
                                     >
                                         {moment(date, 'jYYYY-jM-jD').format('jD')}
                                     </h1>
