@@ -5,7 +5,7 @@ import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
 
-export const Calendar = ({inputFill}) => {
+export const Calendar = () => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
     const {selectedDate, changeSelectedDate} = useAppContext();
