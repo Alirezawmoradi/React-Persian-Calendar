@@ -1,6 +1,6 @@
 import {generateDate} from "../../utils/generate-date.js";
 import moment from "jalali-moment";
-import {PersianDays, PersianMonths} from "../../utils/date.js";
+import {PersianDays, PersianMonths, PersianNumbers} from "../../utils/date.js";
 import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
@@ -57,7 +57,7 @@ export const Calendar = () => {
                                     h-10 w-10 grid place-content-center rounded-full transition-all duration-300`}
                                         onClick={isDisabled ? undefined : () => changeSelectedDate(moment(date, 'jYYYY-jM-jD'))}
                                     >
-                                        {moment(date, 'jYYYY-jM-jD').format('jD')}
+                                        {PersianNumbers[moment(date, 'jYYYY-jM-jD').format('jD')]}
                                     </h1>
                                 </div>
                             )
