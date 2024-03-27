@@ -12,7 +12,7 @@ export const Calendar = () => {
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
-                <div className='flex flex-row-reverse justify-between cursor-default'>
+                <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold'>{PersianMonths[today.jMonth()]},{today.jYear()}</h1>
                     <div className='flex items-center gap-5'>
                         <GrFormPrevious className='w-5 h-5 cursor-pointer'
@@ -34,7 +34,7 @@ export const Calendar = () => {
                     {
                         PersianDays.map((day, index) => {
                             return (
-                                <h1 className='h-14 grid place-content-center text-sm' key={index}>{day}</h1>
+                                <h1 className='h-14 grid place-content-center text-sm cursor-default' key={index}>{day}</h1>
                             )
                         })
                     }
