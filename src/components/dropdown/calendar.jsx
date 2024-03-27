@@ -14,12 +14,16 @@ export const Calendar = () => {
             <div className='flex flex-col w-96 h-96'>
                 <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold'>{today.jYear()}</h1>
-
+                    <h1 className='cursor-pointer' onClick={() => {
+                        changeSelectedDate(currentDate)
+                        setToday(currentDate)
+                    }}>امروز</h1>
                     <div className='flex items-center gap-5'>
                         <GrFormPrevious className='w-5 h-5 cursor-pointer'
                                         onClick={() => {
                                             setToday(moment(today).jMonth(today.jMonth() - 1))
                                         }}/>
+                        <h1 className='font-semibold'>{PersianMonths[today.jMonth()]}</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
                                         setToday(moment(today).jMonth(today.jMonth() + 1))
