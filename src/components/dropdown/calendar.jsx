@@ -23,7 +23,7 @@ export const Calendar = () => {
                                         onClick={() => {
                                             setToday(moment(today).jMonth(today.jMonth() - 1))
                                         }}/>
-                        <h1 className='font-semibold cursor-pointer'>{PersianMonths[today.jMonth()]}</h1>
+                        <h1 className='flex items-center justify-center font-semibold cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'>{PersianMonths[today.jMonth()]}</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
                                         setToday(moment(today).jMonth(today.jMonth() + 1))
