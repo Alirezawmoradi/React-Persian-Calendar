@@ -73,10 +73,12 @@ export const Calendar = () => {
                 </div>
             </div>
             <div className='h-96 w-52 px-5'>
-                <h1 className='font-semibold'>{moment(selectedDate).format('jYYYY/jMM/jDD')}</h1>
+
                 {
-                    showYearDropdown &&
-                    <YearDropdown/>
+                    showYearDropdown ?
+                        <YearDropdown/>
+                        :
+                        <h1 className='font-semibold'>{moment(selectedDate).format('jYYYY/jMM/jDD')}</h1>
                 }
             </div>
         </div>
