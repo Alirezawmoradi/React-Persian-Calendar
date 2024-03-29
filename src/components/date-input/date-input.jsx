@@ -1,9 +1,9 @@
-import {Calendar} from "./calendar.jsx";
+import {Calendar} from "../../feature/calendar/calendar.jsx";
 import {VscCalendar} from "react-icons/vsc";
 import {useState} from "react";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
 
-export const Dropdown = () => {
+export const DateInput = () => {
     //it should change to input with icon to show calendar
     const [showCalendar, setShowCalendar] = useState(false);
     const {selectedDate, changeSelectedDate} = useAppContext();
