@@ -4,20 +4,25 @@ import {PersianDays, PersianMonths, PersianNumbers} from "../../utils/date.js";
 import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
+import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdown.jsx";
 
 export const Calendar = () => {
     const currentDate = moment();
     const [today, setToday] = useState(currentDate);
+    const [showYearDropdown, setShowYearDropdown] = useState(false);
     const {selectedDate, changeSelectedDate} = useAppContext();
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
                 <div className='flex flex-row-reverse justify-between'>
-                    <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'>{today.jYear()}</h1>
-                    <h1 className='flex items-center justify-center cursor-pointer border w-16 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300' onClick={() => {
-                        changeSelectedDate(currentDate)
-                        setToday(currentDate)
-                    }}>امروز</h1>
+                    <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
+                        onClick={() => setShowYearDropdown(!showYearDropdown)}
+                    >{today.jYear()}</h1>
+                    <h1 className='flex items-center justify-center cursor-pointer border w-16 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300'
+                        onClick={() => {
+                            changeSelectedDate(currentDate)
+                            setToday(currentDate)
+                        }}>امروز</h1>
                     <div className='flex items-center gap-5'>
                         <GrFormPrevious className='w-5 h-5 cursor-pointer'
                                         onClick={() => {
@@ -69,6 +74,10 @@ export const Calendar = () => {
             </div>
             <div className='h-96 w-52 px-5'>
                 <h1 className='font-semibold'>{moment(selectedDate).format('jYYYY/jMM/jDD')}</h1>
+                {
+                    showYearDropdown &&
+                    <YearDropdown/>
+                }
             </div>
         </div>
     )
