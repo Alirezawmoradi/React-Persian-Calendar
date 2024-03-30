@@ -21,8 +21,7 @@ export const YearDropdown = () => {
                     <GrFormPrevious className='w-5 h-5 cursor-pointer'
 
                     />
-                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'
-                    >
+                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'>
                         سال جاری
                     </h1>
                     <GrFormNext className='w-5 h-5 cursor-pointer'/>
