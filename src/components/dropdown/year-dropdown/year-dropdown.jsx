@@ -6,7 +6,7 @@ import {useAppContext} from "../../../contexts/app/app-context.jsx";
 export const YearDropdown = () => {
     const startYear = 1300;
     const currentYear = moment().jYear();
-    // const [year, setYear] = useState(currentYear);
+    const [year, setYear] = useState(currentYear);
     const {selectedDate, changeSelectedDate} = useAppContext();
 
     const years = [];
