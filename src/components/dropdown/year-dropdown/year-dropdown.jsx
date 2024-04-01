@@ -57,7 +57,7 @@ export const YearDropdown = () => {
     return (
         <div className='flex flex-col w-96 h-96'>
             <div className='flex flex-row-reverse justify-center'>
-                <div className='flex justify-center items-center gap-5 mb-5'>
+                <div className='flex justify-center items-center gap-5 mb-14'>
                     <GrFormPrevious className='w-5 h-5 cursor-pointer'
                                     onClick={handlePrevYear}/>
                     <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'
