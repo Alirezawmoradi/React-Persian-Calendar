@@ -34,8 +34,6 @@ export const YearDropdown = () => {
     };
 
 
-
-
     const handlePrevYear = () => {
         const currentYear = parseInt(selectedDate.format('jYYYY'));
         const prevYear = currentYear - 1;
@@ -72,7 +70,7 @@ export const YearDropdown = () => {
             <div className='grid grid-cols-4 w-full font-medium text-sm'>
                 {
                     years.slice(startIndex, endIndex).map((year, index) => {
-                        const isSelected = moment(selectedDate).format('jYYYY/jMM/jDD') === moment(year, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
+                        const isSelected = selectedDate.format('jYYYY/jMM/jDD') === moment(year, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                         return (
                             <div
                                 className='h-14 border grid place-content-center cursor-pointer hover:bg-gray-200 hover:rounded-md transition-all duration-300'
