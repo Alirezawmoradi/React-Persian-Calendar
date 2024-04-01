@@ -14,6 +14,28 @@ export const YearDropdown = () => {
         years.push(year);
     }
 
+    const itemsPerPage = 20;
+    const totalPages = Math.ceil((currentYear - startYear + 1) / itemsPerPage);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, years.length);
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+
+
+
     const handlePrevYear = () => {
         const currentYear = parseInt(selectedDate.format('jYYYY'));
         const prevYear = currentYear - 1;
@@ -49,7 +71,7 @@ export const YearDropdown = () => {
             </div>
             <div className='grid grid-cols-4 w-full font-medium text-sm'>
                 {
-                    years.map((year, index) => {
+                    years.slice(startIndex, endIndex).map((year, index) => {
                         const isSelected = moment(selectedDate).format('jYYYY/jMM/jDD') === moment(year, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                         return (
                             <div
@@ -64,6 +86,13 @@ export const YearDropdown = () => {
                         )
                     })
                 }
+            </div>
+            <div className='flex justify-center items-center gap-5 mt-5'>
+                <GrFormPrevious className='w-5 h-5 cursor-pointer' onClick={handlePrevPage}/>
+                <h1 className='flex items-center justify-center cursor-pointer border w-32 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'>
+                    صفحه {currentPage} از {totalPages}
+                </h1>
+                <GrFormNext className='w-5 h-5 cursor-pointer' onClick={handleNextPage}/>
             </div>
         </div>
     )
