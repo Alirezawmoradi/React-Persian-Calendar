@@ -69,7 +69,7 @@ export const YearDropdown = () => {
             </div>
             <div className='grid grid-cols-4 w-full font-medium text-sm'>
                 {
-                    years.slice(startIndex, endIndex).map((year, index) => {
+                    years.reverse().slice(startIndex, endIndex).map((year, index) => {
                         const isSelected = selectedDate.format('jYYYY/jMM/jDD') === moment(year, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                         return (
                             <div
