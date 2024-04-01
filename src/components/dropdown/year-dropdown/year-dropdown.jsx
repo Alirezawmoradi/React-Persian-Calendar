@@ -14,17 +14,37 @@ export const YearDropdown = () => {
         years.push(year);
     }
 
+    const handlePrevYear = () => {
+        const currentYear = parseInt(selectedDate.format('jYYYY'));
+        const prevYear = currentYear - 1;
+        setYear(prevYear);
+        changeSelectedDate(moment(prevYear, 'jYYYY'));
+    }
+    const handleCurrentYear = () => {
+        const newDate = moment().jYear(currentYear);
+        setYear(currentYear);
+        changeSelectedDate(newDate);
+    }
+    const handleNextYear = () => {
+        const currentYear = parseInt(selectedDate.format('jYYYY'));
+        const nextYear = currentYear + 1;
+        setYear(nextYear);
+        changeSelectedDate(moment(nextYear, 'jYYYY'));
+    }
+
     return (
         <div className='flex flex-col w-96 h-96'>
             <div className='flex flex-row-reverse justify-center'>
                 <div className='flex justify-center items-center gap-5 mb-5'>
                     <GrFormPrevious className='w-5 h-5 cursor-pointer'
-
-                    />
-                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'>
+                                    onClick={handlePrevYear}/>
+                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'
+                        onClick={handleCurrentYear}
+                    >
                         سال جاری
                     </h1>
-                    <GrFormNext className='w-5 h-5 cursor-pointer'/>
+                    <GrFormNext className='w-5 h-5 cursor-pointer'
+                                onClick={handleNextYear}/>
                 </div>
             </div>
             <div className='grid grid-cols-4 w-full font-medium text-sm'>
