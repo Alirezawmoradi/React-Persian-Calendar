@@ -54,7 +54,7 @@ export const Calendar = () => {
                                                                                                                         today
                                                                                                                     }, index) => {
                             const isDisabled = !currentMonth;
-                            const isSelected = moment(selectedDate).format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
+                            const isSelected = selectedDate.format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                             return (
                                 <div className='h-14 border grid place-content-center' key={index}>
                                     <h1 className={`${currentMonth ? '' : 'text-gray-400'} 
@@ -78,7 +78,7 @@ export const Calendar = () => {
                     showYearDropdown ?
                         <YearDropdown/>
                         :
-                        <h1 className='font-semibold'>{moment(selectedDate).format('jYYYY/jMM/jDD')}</h1>
+                        <h1 className='font-semibold'>{selectedDate.format('jYYYY/jMM/jDD')}</h1>
                 }
             </div>
         </div>
