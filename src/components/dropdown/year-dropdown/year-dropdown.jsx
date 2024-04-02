@@ -43,9 +43,8 @@ export const YearDropdown = () => {
         }
     }
     const handleCurrentYear = () => {
-        const newDate = moment().jYear(currentYear);
         setYear(currentYear);
-        changeSelectedDate(newDate);
+        changeSelectedDate(moment(currentYear,'jYYYY'));
     }
     const handleNextYear = () => {
         const currentYear = parseInt(selectedDate.format('jYYYY'));
