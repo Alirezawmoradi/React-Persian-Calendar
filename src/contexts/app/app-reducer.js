@@ -6,5 +6,11 @@ export const appReducer = (state, action) => {
                 selectedDate: action.payload
             }
         }
+        case 'Today': {
+            return {
+                ...state,
+                today: action.payload
+            }
+        }
     }
 }

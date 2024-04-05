@@ -5,7 +5,8 @@ import {appReducer} from "./app-reducer.js";
 const AppContext = createContext();
 
 const initialState = {
-    selectedDate: moment()
+    selectedDate: moment(),
+    today: moment()
 };
 
 const AppProvider = ({children}) => {
@@ -14,8 +15,11 @@ const AppProvider = ({children}) => {
     const changeSelectedDate = (selectedDate) => {
         dispatch({type: 'SELECTED_DATE', payload: selectedDate})
     }
+    const changeToday = (today) => {
+        dispatch({type: 'Today', payload: today})
+    }
 
-    return <AppContext.Provider value={{...state, changeSelectedDate}}>
+    return <AppContext.Provider value={{...state, changeSelectedDate,changeToday}}>
         {children}
     </AppContext.Provider>
 }
