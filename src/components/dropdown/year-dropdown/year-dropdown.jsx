@@ -7,7 +7,7 @@ export const YearDropdown = () => {
     const startYear = 1300;
     const currentYear = moment().jYear();
     const [year, setYear] = useState(currentYear);
-    const {selectedDate, changeSelectedDate} = useAppContext();
+    const {selectedDate, changeSelectedDate,changeToday,today} = useAppContext();
 
     const years = [];
     for (let year = startYear; year <= currentYear; year++) {
@@ -38,20 +38,23 @@ export const YearDropdown = () => {
         const currentYear = parseInt(selectedDate.format('jYYYY'));
         const nextYear = currentYear + 1;
         if (nextYear <= moment().jYear()) {
-            setYear(nextYear);
+            // setYear(nextYear);
             changeSelectedDate(moment(nextYear, 'jYYYY'));
+            changeToday(moment(today).jYear(today.jYear() - 1))
         }
     }
     const handleCurrentYear = () => {
-        setYear(currentYear);
+        // setYear(currentYear);
         changeSelectedDate(moment(currentYear,'jYYYY'));
+        changeToday(moment(currentYear,'jYYYY'))
     }
     const handleNextYear = () => {
         const currentYear = parseInt(selectedDate.format('jYYYY'));
         const prevYear = currentYear - 1;
         if (prevYear >= startYear) {
-            setYear(prevYear);
+            // setYear(prevYear);
             changeSelectedDate(moment(prevYear, 'jYYYY'));
+            changeToday(moment(today).jYear(today.jYear() - 1))
         }
     }
 
