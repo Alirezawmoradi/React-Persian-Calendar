@@ -8,7 +8,6 @@ import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdow
 
 export const Calendar = () => {
     const currentDate = moment();
-    // const [today, setToday] = useState(currentDate);
     const [showYearDropdown, setShowYearDropdown] = useState(false);
     const {selectedDate, changeSelectedDate,changeToday,today} = useAppContext();
     return (
@@ -26,12 +25,12 @@ export const Calendar = () => {
                     <div className='flex items-center gap-5'>
                         <GrFormPrevious className='w-5 h-5 cursor-pointer'
                                         onClick={() => {
-                                            changeToday(moment(today).jMonth(today.jMonth() - 1))
+                                            changeToday(today.jMonth(today.jMonth() - 1))
                                         }}/>
                         <h1 className='flex items-center justify-center font-semibold cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'>{PersianMonths[today.jMonth()]}</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
-                                        changeToday(moment(today).jMonth(today.jMonth() + 1))
+                                        changeToday(today.jMonth(today.jMonth() + 1))
                                     }}
                         />
                     </div>
@@ -48,7 +47,7 @@ export const Calendar = () => {
                 </div>
                 <div className='grid grid-cols-7 w-full font-medium text-sm'>
                     {
-                        generateDate(moment(today).jMonth(today.jMonth()), moment(today).jYear(today.jYear())).map(({
+                        generateDate(today.jMonth(today.jMonth()), today.jYear(today.jYear())).map(({
                                                                                                                         date,
                                                                                                                         currentMonth,
                                                                                                                         today
