@@ -80,7 +80,7 @@ export const YearDropdown = () => {
                                 onClick={() => changeSelectedDate(moment(year, 'jYYYY'))}
                             >
                                 <h1 className={`h-10 w-10 grid place-content-center
-                                ${isSelected ? 'bg-red-600 text-white h-14 w-24' : ''} 
+                                ${isSelected ? 'bg-red-600 text-white h-14 w-24' : ''}
                                 rounded-md transition-all duration-300`}
                                 >{year}</h1>
                             </div>
