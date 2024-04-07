@@ -11,6 +11,7 @@ export const Calendar = () => {
     const currentDate = moment();
     const [showYearDropdown, setShowYearDropdown] = useState(false);
     const {selectedDate, changeSelectedDate,changeToday,today} = useAppContext();
+    const PersianDate = `${PersianNumber(selectedDate.format('jYYYY'))}/${PersianNumber(selectedDate.format('jMM'))}/${PersianNumber(selectedDate.format('jDD'))}`;
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
             <div className='flex flex-col w-96 h-96'>
@@ -78,7 +79,7 @@ export const Calendar = () => {
                     showYearDropdown ?
                         <YearDropdown/>
                         :
-                        <h1 className='font-semibold'>{selectedDate.format('jYYYY/jMM/jDD')}</h1>
+                        <h1 className='font-semibold'>{PersianDate}</h1>
                 }
             </div>
         </div>
