@@ -2,6 +2,7 @@ import moment from "jalali-moment";
 import {useState} from "react";
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {useAppContext} from "../../../contexts/app/app-context.jsx";
+import {PersianNumber} from "../../../utils/persian-number.js";
 
 export const YearDropdown = () => {
     const startYear = 1300;
@@ -85,7 +86,7 @@ export const YearDropdown = () => {
                                 <h1 className={`h-10 w-10 grid place-content-center
                                 ${isSelected ? 'bg-red-600 text-white h-14 w-24' : ''}
                                 rounded-md transition-all duration-300`}
-                                >{year}</h1>
+                                >{PersianNumber(year)}</h1>
                             </div>
                         )
                     })
@@ -94,7 +95,7 @@ export const YearDropdown = () => {
             <div className='flex justify-center items-center gap-5 mt-5'>
                 <GrFormPrevious className='w-5 h-5 cursor-pointer' onClick={handlePrevPage}/>
                 <h1 className='flex items-center justify-center cursor-pointer border w-32 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'>
-                    صفحه {currentPage} از {totalPages}
+                    صفحه {PersianNumber(currentPage)} از {PersianNumber(totalPages)}
                 </h1>
                 <GrFormNext className='w-5 h-5 cursor-pointer' onClick={handleNextPage}/>
             </div>
