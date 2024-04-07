@@ -17,7 +17,7 @@ export const Calendar = () => {
                 <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
                         onClick={() => setShowYearDropdown(!showYearDropdown)}
-                    >{today.jYear()}</h1>
+                    >{PersianNumber(today.jYear())}</h1>
                     <h1 className='flex items-center justify-center cursor-pointer border w-16 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300'
                         onClick={() => {
                             changeSelectedDate(currentDate)
