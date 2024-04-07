@@ -77,7 +77,10 @@ export const YearDropdown = () => {
                             <div
                                 className='h-14 border grid place-content-center cursor-pointer hover:bg-gray-200 hover:rounded-md transition-all duration-300'
                                 key={index}
-                                onClick={() => changeSelectedDate(moment(year, 'jYYYY'))}
+                                onClick={() => {
+                                    changeSelectedDate(moment(year, 'jYYYY'))
+                                    changeToday(moment(year,'jYYYY'))
+                                }}
                             >
                                 <h1 className={`h-10 w-10 grid place-content-center
                                 ${isSelected ? 'bg-red-600 text-white h-14 w-24' : ''}
