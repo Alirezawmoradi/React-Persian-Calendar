@@ -38,7 +38,7 @@ export const YearDropdown = () => {
         const nextYear = currentYear + 1;
         if (nextYear <= moment().jYear()) {
             changeSelectedDate(moment(nextYear, 'jYYYY'));
-            changeToday(today.jYear(today.jYear() - 1))
+            changeToday(today.jYear(today.jYear() + 1))
         }
     }
     const handleCurrentYear = () => {
