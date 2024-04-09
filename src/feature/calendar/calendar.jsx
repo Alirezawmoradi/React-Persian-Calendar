@@ -6,11 +6,13 @@ import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
 import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdown.jsx";
 import {PersianNumber} from "../../utils/persian-number.js";
+import {MonthDropdown} from "../../components/dropdown/month-dropdown/month-dropdown.jsx";
 
 export const Calendar = () => {
     const currentDate = moment();
     const [showYearDropdown, setShowYearDropdown] = useState(false);
-    const {selectedDate, changeSelectedDate,changeToday,today} = useAppContext();
+    const [showMonthDropdown, setShowMonthDropdown] = useState(false);
+    const {selectedDate, changeSelectedDate, changeToday, today} = useAppContext();
     const PersianDate = `${PersianNumber(selectedDate.format('jYYYY'))}/${PersianNumber(selectedDate.format('jMM'))}/${PersianNumber(selectedDate.format('jDD'))}`;
     return (
         <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
@@ -29,7 +31,10 @@ export const Calendar = () => {
                                         onClick={() => {
                                             changeToday(today.jMonth(today.jMonth() - 1))
                                         }}/>
-                        <h1 className='flex items-center justify-center font-semibold cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'>{PersianMonths[today.jMonth()]}</h1>
+                        <h1 className='flex items-center justify-center font-semibold cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
+                            onClick={() => setShowMonthDropdown(!showMonthDropdown)}
+                        >
+                            {PersianMonths[today.jMonth()]}</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
                                     onClick={() => {
                                         changeToday(today.jMonth(today.jMonth() + 1))
@@ -50,10 +55,10 @@ export const Calendar = () => {
                 <div className='grid grid-cols-7 w-full font-medium text-sm'>
                     {
                         generateDate(today.jMonth(today.jMonth()), today.jYear(today.jYear())).map(({
-                                                                                                                        date,
-                                                                                                                        currentMonth,
-                                                                                                                        today
-                                                                                                                    }, index) => {
+                                                                                                        date,
+                                                                                                        currentMonth,
+                                                                                                        today
+                                                                                                    }, index) => {
                             const isDisabled = !currentMonth;
                             const isSelected = selectedDate.format('jYYYY/jMM/jDD') === moment(date, 'jYYYY-jM-jD').format('jYYYY/jMM/jDD');
                             return (
@@ -79,7 +84,10 @@ export const Calendar = () => {
                     showYearDropdown ?
                         <YearDropdown/>
                         :
-                        <h1 className='font-semibold'>{PersianDate}</h1>
+                        showMonthDropdown ?
+                            <MonthDropdown/>
+                            :
+                            <h1 className='font-semibold'>{PersianDate}</h1>
                 }
             </div>
         </div>
