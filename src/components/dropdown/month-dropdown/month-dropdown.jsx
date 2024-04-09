@@ -1,8 +1,10 @@
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {PersianMonths} from "../../../utils/date.js";
+import {useAppContext} from "../../../contexts/app/app-context.jsx";
 
 
 export const MonthDropdown = () => {
+    const {changeToday, today} = useAppContext();
     return (
         <div className='flex flex-col w-96 h-96'>
             <div className='flex flex-row-reverse justify-center'>
@@ -17,21 +19,23 @@ export const MonthDropdown = () => {
                     />
                 </div>
             </div>
-            <div className='grid grid-cols-3 w-full font-medium text-sm'>
-                {
-                    PersianMonths.map((month,index) => {
-                        return (
-                            <div
-                                className='h-14 border grid place-content-center cursor-pointer hover:bg-gray-200 hover:rounded-md transition-all duration-300'
-                                key={index}
-                            >
-                                <h1 className={`h-10 w-10 grid place-content-center
-                                rounded-md transition-all duration-300`}
-                                >{month}</h1>
-                            </div>
-                        )
-                    })
-                }
+            <div className='grid grid-cols-3 w-full font-medium text-sm' dir={'rtl'}>
+                {PersianMonths.map((month, index) => {
+                    return (
+                        <div
+                            className='h-14 border grid place-content-center cursor-pointer hover:bg-gray-200 hover:rounded-md transition-all duration-300'
+                            key={index}
+                            onClick={() => {
+                                changeToday(today.jMonth(index));
+                            }}
+                        >
+                            <h1 className={`h-10 w-10 grid place-content-center 
+                            rounded-md transition-all duration-300`}>
+                                {month}
+                            </h1>
+                        </div>
+                    )
+                })}
             </div>
         </div>
 
