@@ -21,6 +21,7 @@ export const MonthDropdown = () => {
             </div>
             <div className='grid grid-cols-3 w-full font-medium text-sm' dir={'rtl'}>
                 {PersianMonths.map((month, index) => {
+                    const isSelected = today.jMonth() === index;
                     return (
                         <div
                             className='h-14 border grid place-content-center cursor-pointer hover:bg-gray-200 hover:rounded-md transition-all duration-300'
@@ -30,6 +31,7 @@ export const MonthDropdown = () => {
                             }}
                         >
                             <h1 className={`h-10 w-10 grid place-content-center 
+                            ${isSelected ? 'bg-red-600 text-white h-14 w-32' : ''}
                             rounded-md transition-all duration-300`}>
                                 {month}
                             </h1>
