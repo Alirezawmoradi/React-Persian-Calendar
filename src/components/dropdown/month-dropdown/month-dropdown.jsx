@@ -19,7 +19,7 @@ export const MonthDropdown = () => {
                     />
                 </div>
             </div>
-            <div className='grid grid-cols-3 w-full font-medium text-sm' dir={'rtl'}>
+            <div className='grid grid-cols-3 w-full font-medium text-sm' dir='rtl'>
                 {PersianMonths.map((month, index) => {
                     const isSelected = today.jMonth() === index;
                     return (
