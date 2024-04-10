@@ -1,6 +1,7 @@
 import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {PersianMonths} from "../../../utils/date.js";
 import {useAppContext} from "../../../contexts/app/app-context.jsx";
+import moment from "jalali-moment";
 
 ///currentMonth and buttons should create
 export const MonthDropdown = () => {
@@ -10,12 +11,17 @@ export const MonthDropdown = () => {
             <div className='flex flex-row-reverse justify-center'>
                 <div className='flex justify-center items-center gap-5 mb-14'>
                     <GrFormPrevious className='w-5 h-5 cursor-pointer'
+                                    onClick={() => {
+                                        changeToday(today.jMonth(today.jMonth() - 1))
+                                    }}
                     />
-                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'
-                    >
+                    <h1 className='flex items-center justify-center cursor-pointer border w-20 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300 text-sm'>
                         ماه جاری
                     </h1>
                     <GrFormNext className='w-5 h-5 cursor-pointer'
+                                onClick={() => {
+                                    changeToday(today.jMonth(today.jMonth() + 1))
+                                }}
                     />
                 </div>
             </div>
