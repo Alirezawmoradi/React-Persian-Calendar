@@ -1,11 +1,9 @@
-import {GrFormNext, GrFormPrevious} from "react-icons/gr";
 import {PersianMonths} from "../../../utils/date.js";
 import {useAppContext} from "../../../contexts/app/app-context.jsx";
 
 ///currentMonth and buttons should create
 export const MonthDropdown = () => {
     const {changeToday, today} = useAppContext();
-    console.log(PersianMonths[today.jMonth()])
     return (
         <div className='flex flex-col w-96 h-96 justify-center mt-2'>
             <div className='grid grid-cols-3 w-full font-medium text-sm' dir='rtl'>
