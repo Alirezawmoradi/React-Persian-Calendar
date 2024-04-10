@@ -1,9 +1,11 @@
-import {DatePicker} from "./feature/date-picker/date-picker.jsx";
+import {Calendar} from "./feature/calendar/calendar.jsx";
 
 function App() {
 
     return (
-        <DatePicker/>
+        <div className='flex flex-col justify-center'>
+            <Calendar/>
+        </div>
     )
 }
 
