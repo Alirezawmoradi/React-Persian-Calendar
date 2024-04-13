@@ -19,7 +19,11 @@ export const Calendar = () => {
             <div className='flex flex-col w-96 h-96'>
                 <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
-                        onClick={() => setShowYearDropdown(!showYearDropdown)}
+                        onClick={() => {
+                            setShowYearDropdown(!showYearDropdown);
+                            setShowMonthDropdown(false);
+                        }
+                        }
                     >{PersianNumber(today.jYear())}</h1>
                     <h1 className='flex items-center justify-center cursor-pointer border w-16 rounded-full bg-blue-700 hover:bg-blue-800 h-8 text-white transition-all duration-300'
                         onClick={() => {
@@ -32,7 +36,10 @@ export const Calendar = () => {
                                             changeToday(today.jMonth(today.jMonth() - 1))
                                         }}/>
                         <h1 className='flex items-center justify-center font-semibold cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
-                            onClick={() => setShowMonthDropdown(!showMonthDropdown)}
+                            onClick={() => {
+                                setShowMonthDropdown(!showMonthDropdown);
+                                setShowYearDropdown(false);
+                            }}
                         >
                             {PersianMonths[today.jMonth()]}</h1>
                         <GrFormNext className='w-5 h-5 cursor-pointer'
@@ -79,14 +86,9 @@ export const Calendar = () => {
                 </div>
             </div>
             <div className='h-96 w-52 px-5'>
-
                 {
-                    showYearDropdown ?
-                        <YearDropdown/>
-                        :
-                        showMonthDropdown ?
-                            <MonthDropdown/>
-                            :
+                    showYearDropdown ? <YearDropdown/> :
+                        showMonthDropdown ? <MonthDropdown/> :
                             <h1 className='font-semibold'>{PersianDate}</h1>
                 }
             </div>
