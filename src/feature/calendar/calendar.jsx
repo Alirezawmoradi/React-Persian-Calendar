@@ -7,6 +7,9 @@ import {useAppContext} from "../../contexts/app/app-context.jsx";
 import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdown.jsx";
 import {PersianNumber} from "../../utils/persian-number.js";
 import {MonthDropdown} from "../../components/dropdown/month-dropdown/month-dropdown.jsx";
+import {IoClose, IoCloseCircle, IoCloseCircleOutline, IoCloseCircleSharp} from "react-icons/io5";
+import {IoMdCloseCircleOutline} from "react-icons/io";
+import {CgClose} from "react-icons/cg";
 
 export const Calendar = () => {
     const currentDate = moment();
@@ -87,8 +90,22 @@ export const Calendar = () => {
             </div>
             <div className='h-96 w-52 px-5'>
                 {
-                    showYearDropdown ? <YearDropdown/> :
-                        showMonthDropdown ? <MonthDropdown/> :
+                    showYearDropdown ?
+                        (
+                            <>
+                                <CgClose className='cursor-pointer' onClick={() => setShowYearDropdown(false)}/>
+                                <YearDropdown/>
+                            </>
+                        )
+                        :
+                        showMonthDropdown ?
+                            (
+                                <>
+                                    <CgClose className='cursor-pointer' onClick={() => setShowMonthDropdown(false)}/>
+                                    <MonthDropdown/>
+                                </>
+                            )
+                            :
                             <h1 className='font-semibold'>{PersianDate}</h1>
                 }
             </div>
