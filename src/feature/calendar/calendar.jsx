@@ -7,8 +7,6 @@ import {useAppContext} from "../../contexts/app/app-context.jsx";
 import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdown.jsx";
 import {PersianNumber} from "../../utils/persian-number.js";
 import {MonthDropdown} from "../../components/dropdown/month-dropdown/month-dropdown.jsx";
-import {IoClose, IoCloseCircle, IoCloseCircleOutline, IoCloseCircleSharp} from "react-icons/io5";
-import {IoMdCloseCircleOutline} from "react-icons/io";
 import {CgClose} from "react-icons/cg";
 
 export const Calendar = () => {
