@@ -108,7 +108,7 @@ export const Calendar = () => {
                                 </>
                             )
                             :
-                            <div className='flex flex-col gap-3 w-96 font-extrabold text-gray-700'>
+                            <div className='flex flex-col gap-10 w-96 font-extrabold text-gray-700'>
                                 <h1 className='text-base'>{PersianDate}</h1>
                                 <h1 className='text-sm'>{PersianDigit}</h1>
                             </div>
