@@ -12,5 +12,11 @@ export const appReducer = (state, action) => {
                 today: action.payload
             }
         }
+        case 'CHANGE_THEME': {
+            return {
+                ...state,
+                theme: action.payload
+            }
+        }
     }
 }
