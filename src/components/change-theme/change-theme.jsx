@@ -9,7 +9,7 @@ const ChangeTheme = () => {
     }
     return (
         <div
-            className='relative w-16 h-8 flex items-center dark:bg-gray-900 bg-teal-500 cursor-pointer rounded-full p-1 ml-6'
+            className='relative w-16 h-8 flex items-center dark:bg-gray-900 bg-blue-400 cursor-pointer rounded-full p-1 ml-6'
             onClick={changeThemeHandler}
             data-theme={theme}
         >
