@@ -8,6 +8,7 @@ import {YearDropdown} from "../../components/dropdown/year-dropdown/year-dropdow
 import {PersianNumber} from "../../utils/persian-number.js";
 import {MonthDropdown} from "../../components/dropdown/month-dropdown/month-dropdown.jsx";
 import {CgClose} from "react-icons/cg";
+import Num2persian from "../../utils/persian-digits.js";
 
 export const Calendar = () => {
     const currentDate = moment();
@@ -15,8 +16,9 @@ export const Calendar = () => {
     const [showMonthDropdown, setShowMonthDropdown] = useState(false);
     const {selectedDate, changeSelectedDate, changeToday, today} = useAppContext();
     const PersianDate = `${PersianNumber(selectedDate.format('jYYYY'))}/${PersianNumber(selectedDate.format('jMM'))}/${PersianNumber(selectedDate.format('jDD'))}`;
+    const PersianDigit = `${Num2persian(selectedDate.format('jDD'))}مین روز از ${PersianMonths[today.jMonth()]} ماه سال ${Num2persian(selectedDate.format('jYYYY'))}`;
     return (
-        <div className='flex mx-auto divide-x-2 items-center gap-10 h-screen'>
+        <div className='flex mx-auto divide-x-2 justify-center items-center gap-10 h-screen w-screen '>
             <div className='flex flex-col w-96 h-96'>
                 <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 hover:rounded-md transition-all duration-300'
@@ -106,7 +108,10 @@ export const Calendar = () => {
                                 </>
                             )
                             :
-                            <h1 className='font-semibold'>{PersianDate}</h1>
+                            <div className='flex flex-col gap-3 w-96 font-extrabold text-gray-700'>
+                                <h1 className='text-base'>{PersianDate}</h1>
+                                <h1 className='text-sm'>{PersianDigit}</h1>
+                            </div>
                 }
             </div>
         </div>
