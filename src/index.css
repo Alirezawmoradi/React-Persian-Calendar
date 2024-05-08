@@ -6,21 +6,21 @@
     font-family: iranyekan;
     font-style: normal;
     font-weight: 700;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebBold.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebBold.woff2) format("woff2")
 }
 
 @font-face {
     font-family: iranyekan;
     font-style: normal;
     font-weight: 300;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebRegular.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebRegular.woff2) format("woff2")
 }
 
 @font-face {
     font-family: iranyekan;
     font-style: normal;
     font-weight: 400;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
 }
 
 
@@ -28,28 +28,28 @@
     font-family: iranyekan;
     font-style: normal;
     font-weight: 500;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebMedium.woff2) format("woff2")
 }
 
 @font-face {
     font-family: iranyekan;
     font-style: normal;
     font-weight: 800;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebExtraBold.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebExtraBold.woff2) format("woff2")
 }
 
 @font-face {
     font-family: iranyekan;
     font-style: normal;
     font-weight: 900;
-    src: url(/public/fonts/iranyekan/woff2/IRANYekanWebBlack.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/IRANYekanWebBlack.woff2) format("woff2")
 }
 
 @font-face {
     font-family: iranyekan;
     font-style: normal;
     font-weight: 1000;
-    src: url(/public/fonts/iranyekan/woff2/iranyekanwebextrablack.woff2) format("woff2")
+    src: url(/fonts/iranyekan/woff2/iranyekanwebextrablack.woff2) format("woff2")
 }
 
 @layer base{
