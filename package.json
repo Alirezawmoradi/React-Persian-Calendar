@@ -1,5 +1,4 @@
 {
-  "homepage": "https://Alirezawmoradi.github.io/datepicker/",
   "name": "datepicker",
   "private": true,
   "version": "0.0.0",
@@ -8,9 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "jalali-moment": "^3.3.11",
