@@ -5,7 +5,8 @@ export const MonthDropdown = () => {
     const {changeToday, today} = useAppContext();
     return (
         <div className='flex flex-col xl:w-96 w-80 xl:h-96 h-72 justify-center mt-2'>
-            <div className='grid grid-cols-3 dark:divide-gray-600 w-full font-medium dark:text-gray-200 text-sm' dir='rtl'>
+            <div className='grid grid-cols-3 dark:divide-gray-600 w-full font-medium dark:text-gray-200 text-sm'
+                 dir='rtl'>
                 {PersianMonths.map((month, index) => {
                     const isSelected = today.jMonth() === index;
                     return (
