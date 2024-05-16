@@ -6,11 +6,11 @@ function App() {
     const {theme} = useAppContext();
     return (
         <div className={`${theme}`}>
-            <div className='flex justify-center bg-light dark:bg-dark transition-colors duration-500'>
-                <nav className='flex justify-start gap-2 align-middle py-4'>
+            <div className='flex flex-col  bg-light dark:bg-dark w-screen min-h-screen transition-colors duration-500'>
                     <ChangeTheme/>
-                </nav>
-                <Calendar/>
+                <main>
+                    <Calendar/>
+                </main>
             </div>
         </div>
     )

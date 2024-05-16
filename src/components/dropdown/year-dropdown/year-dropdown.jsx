@@ -56,7 +56,7 @@ export const YearDropdown = () => {
     }
 
     return (
-        <div className='flex flex-col w-96 h-96'>
+        <div className='flex flex-col xl:w-96  xl:h-96 w-80 min-h-screen'>
             <div className='flex flex-row-reverse justify-center'>
                 <div className='flex justify-center items-center gap-5 mb-14'>
                     <GrFormPrevious
@@ -86,7 +86,7 @@ export const YearDropdown = () => {
                                 }}
                             >
                                 <h1 className={`h-10 w-10 grid place-content-center
-                                ${isSelected ? 'bg-red-600 dark:bg-blue-600 text-white h-14 w-24' : ''}
+                                ${isSelected ? 'bg-red-600 dark:bg-blue-600 text-white h-14 xl:w-24 w-20' : ''}
                                 rounded-md transition-all duration-300`}
                                 >{PersianNumber(year)}</h1>
                             </div>

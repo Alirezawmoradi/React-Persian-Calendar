@@ -4,7 +4,7 @@ import {useAppContext} from "../../../contexts/app/app-context.jsx";
 export const MonthDropdown = () => {
     const {changeToday, today} = useAppContext();
     return (
-        <div className='flex flex-col w-96 h-96 justify-center mt-2'>
+        <div className='flex flex-col xl:w-96 w-80 xl:h-96 h-72 justify-center mt-2'>
             <div className='grid grid-cols-3 dark:divide-gray-600 w-full font-medium dark:text-gray-200 text-sm' dir='rtl'>
                 {PersianMonths.map((month, index) => {
                     const isSelected = today.jMonth() === index;
@@ -17,7 +17,7 @@ export const MonthDropdown = () => {
                             }}
                         >
                             <h1 className={`h-10 w-10 grid place-content-center 
-                            ${isSelected ? 'bg-red-600 dark:bg-blue-600 text-white h-14 w-32' : ''}
+                            ${isSelected ? 'bg-red-600 dark:bg-blue-600 text-white h-14 xl:w-32 w-28' : ''}
                             rounded-md transition-all duration-300`}>
                                 {month}
                             </h1>

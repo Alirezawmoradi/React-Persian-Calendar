@@ -18,8 +18,8 @@ export const Calendar = () => {
     const PersianDate = `${PersianNumber(selectedDate.format('jYYYY'))}/${PersianNumber(selectedDate.format('jMM'))}/${PersianNumber(selectedDate.format('jDD'))}`;
     const PersianDigit = `${Num2persian(selectedDate.format('jDD'))}مین روز از ${PersianMonths[today.jMonth()]} ماه سال ${Num2persian(selectedDate.format('jYYYY'))}`;
     return (
-        <div className='flex mx-auto divide-x-2 dark:divide-gray-700 justify-center items-center gap-10 h-screen w-screen '>
-            <div className='flex flex-col w-96 h-96'>
+        <div className='flex flex-col xl:flex-row mx-auto xl:divide-x-2 dark:divide-gray-700 justify-center items-center gap-10 xl:mt-32 mt-20'>
+            <div className='flex flex-col xl:w-96 xl:h-96'>
                 <div className='flex flex-row-reverse justify-between'>
                     <h1 className='font-semibold flex items-center justify-center cursor-pointer w-20 h-8 hover:bg-gray-200 rounded-md dark:text-gray-300 dark:hover:bg-gray-500 transition-all duration-300'
                         onClick={() => {
@@ -35,7 +35,7 @@ export const Calendar = () => {
                             setShowYearDropdown(false)
                             setShowMonthDropdown(false)
                         }}>امروز</h1>
-                    <div className='flex items-center gap-5'>
+                    <div className='flex items-center xl:gap-5 gap-1'>
                         <GrFormPrevious className='w-5 h-5 cursor-pointer dark:text-gray-300 dark:hover:text-white hover:text-gray-500 transition-all duration-300'
                                         onClick={() => {
                                             changeToday(today.jMonth(today.jMonth() - 1))
@@ -64,7 +64,7 @@ export const Calendar = () => {
                         })
                     }
                 </div>
-                <div className='grid grid-cols-7 dark:divide-gray-500 w-full font-medium text-sm dark:text-gray-200'>
+                <div className='grid grid-cols-7 dark:divide-gray-500 xl:w-full w-80 font-medium text-sm dark:text-gray-200'>
                     {
                         generateDate(today.jMonth(today.jMonth()), today.jYear(today.jYear())).map(({
                                                                                                         date,
@@ -90,7 +90,7 @@ export const Calendar = () => {
                     }
                 </div>
             </div>
-            <div className='h-96 w-52 px-5'>
+            <div className='xl:h-96 xl:w-52 w-auto h-auto xl:px-5'>
                 {
                     showYearDropdown ?
                         (
@@ -110,9 +110,9 @@ export const Calendar = () => {
                                 </>
                             )
                             :
-                            <div className='flex flex-col gap-7 w-96 font-extrabold text-gray-700 dark:text-gray-300 transition-colors duration-500'>
-                                <h1 className='text-base'>{PersianDate}</h1>
-                                <h1 className='text-sm'>{PersianDigit}</h1>
+                            <div className='flex flex-col xl:gap-7 gap-5 mb-10 xl:mb-0 xl:w-96 w-auto text-center xl:text-left font-extrabold text-gray-700 dark:text-gray-300 transition-colors duration-500'>
+                                <h1 className='xl:text-base text-sm'>{PersianDate}</h1>
+                                <h1 className='xl:text-sm text-xs'>{PersianDigit}</h1>
                             </div>
                 }
             </div>
